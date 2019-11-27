@@ -1,6 +1,6 @@
 {
   "name": "talos-plugin-boilerplate",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A plugin builerplate for Talos",
   "main": "./dist/HelloWorld.js",
   "scripts": {
