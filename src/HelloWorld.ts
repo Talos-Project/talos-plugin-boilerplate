@@ -2,12 +2,13 @@ import { Plugin } from "./interfaces/Plugin";
 import { GitClient } from "./interfaces/GitClient";
 import { NoteEvent } from "./interfaces/events/NoteEvent";
 import { Config } from "./interfaces/Config";
+import { GitProvider } from "./GitProvider";
 
 export default class HelloWorld implements Plugin<any, Promise<any>> {
   private client: GitClient;
 
   constructor(config: Config) {
-    this.client = new (require(config.git.client)).default(config.git);
+    this.client = GitProvider.getInstance(config.git)
   }
 
   async handle(rx: NoteEvent): Promise<any> {
