@@ -7,7 +7,7 @@ export default class HelloWorld implements Plugin<any, Promise<any>> {
   private client: GitClient;
 
   constructor(config: Config) {
-    this.client = require(config.git.client);
+    this.client = new (require(config.git.client))(config.git);
   }
 
   async handle(rx: NoteEvent): Promise<any> {
